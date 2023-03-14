@@ -1,0 +1,6 @@
+- name: add cri-o repository
+  shell: curl -L -o /etc/yum.repos.d/devel:kubic:libcontainers:stable.repo https://download.opensuse.org/repositories/devel:/kubic:/libcontainers:/stable/"{{OS}}"/devel:kubic:libcontainers:stable.repo
+  shell: curl -L -o /etc/yum.repos.d/devel:kubic:libcontainers:stable:cri-o:"{{VERSION}}".repo https://download.opensuse.org/repositories/devel:kubic:libcontainers:stable:cri-o:"{{VERSION}}"/"{{OS}}"/devel:kubic:libcontainers:stable:cri-o:"{{VERSION}}".repo
+ 
+- name: install cri-o
+  shell: yum install cri-o -y 
