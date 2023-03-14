@@ -1,0 +1,14 @@
+# disable SELinux (because it is not fully supported by Kubernetes yet)
+- name: disable SELinux
+  command: setenforce 0
+
+- name: disable SELinux on reboot
+  selinux:
+    state: disabled
+
+# remove disable swap and remove it from fstab
+- name: disable swap
+  shell: swapoff -a
+
+- name: remove swap 
+  shell: sed -i '/swap/d' /etc/fstab
