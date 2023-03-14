@@ -38,7 +38,7 @@ Create Kubernetes Cluster with Kubeadm using ansible on CentOS 8\
 note: you can also disable Firewall service instead 
 
 * ### Configure Kubernetes dependencies 
-These configurations are done on both master and worker Kubernetes nodes
+  These configurations are done on both master and worker Kubernetes nodes
   * Disable `SELinux` service
   * Disable `Swapping on` 
   * Install `CRI-O` a Container runtime 
