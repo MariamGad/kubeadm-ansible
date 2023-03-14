@@ -3,4 +3,10 @@
   shell: curl -L -o /etc/yum.repos.d/devel:kubic:libcontainers:stable:cri-o:"{{VERSION}}".repo https://download.opensuse.org/repositories/devel:kubic:libcontainers:stable:cri-o:"{{VERSION}}"/"{{OS}}"/devel:kubic:libcontainers:stable:cri-o:"{{VERSION}}".repo
  
 - name: install cri-o
-  shell: yum install cri-o -y 
+  shell: yum install cri-o -y
+
+- name: start cri-o
+  service:
+    name: crio
+    enabled: yes
+    state: started 
