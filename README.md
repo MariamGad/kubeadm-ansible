@@ -45,3 +45,10 @@ note: you can also disable Firewall service instead
   * Install `Kubeadm` a CLI tool that will install and configure the various components of a cluster.
   * Install `kubelet` a system service that runs on all nodes and handles node-level operations.
   * Install `kubectl` a CLI tool used for issuing commands to the cluster through its API Server.
+  
+* ### Setting Up the Master Node
+  * Initialize the cluster by running `kubeadm init`
+  *  Create a `.kube` directory at `/home/cloud`. This directory will hold configuration information such as the admin key files, which are required to connect to the cluster, and the cluster’s API address.\
+  **note: cloud is a non-root user should be added before**
+  *  Copy the `/etc/kubernetes/admin.conf` file that was generated from `kubeadm init` to your non-root **cloud** user’s home directory.
+  *  Run `kubectl apply` to install `Flannel`.
