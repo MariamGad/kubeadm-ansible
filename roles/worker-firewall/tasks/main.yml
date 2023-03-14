@@ -1,0 +1,13 @@
+- name: permit the following ports on worker node
+  firewalld:
+    port: "{{ item.port }}/{{ item.proto }}"
+    permanent: yes
+    immediate: yes
+    state: enabled
+  notify:
+    - reload service firewalld
+
+  with_items:
+    - {port: "10250", proto: "tcp"}
+    - {port: "30000-32767", proto: "tcp"}
+

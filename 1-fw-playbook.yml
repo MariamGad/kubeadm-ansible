@@ -1,0 +1,9 @@
+- hosts: masters
+  become: yes
+  roles:
+    - ../roles/master-firewall
+
+- hosts: workers
+  become: yes
+  roles:
+    - ../roles/worker-firewall
